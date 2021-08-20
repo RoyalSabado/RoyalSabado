@@ -31,9 +31,6 @@
 </template>
 
 <script>
-import {
-    mdiExitToApp
-} from "@mdi/js";
 
 export default {
     props: {
@@ -56,26 +53,13 @@ export default {
                     ],
                 },
             ],
-            dialogm1: "",
-            dialog: false,
             attrs: "",
-            user: {},
-            perfil: "",
-            active_tab: 0,
-            svgPath: mdiExitToApp,
-            nomeUsuarioLogado: "",
-            icones: [true, false],
-            setMode: 'Administrador',
-            todosOsPerfils: ["Administrador", "Básico", "Comercial", "Expedição", "Faturamento", "Qualidade", "Técnico"]
         }
     },
     created() {
         window.addEventListener("resize", this.Resize);
     },
     mounted() {
-        this.user = JSON.parse(localStorage.user)
-        this.nomeUsuarioLogado = this.user.nome.split(" ")[0];
-        this.perfil = this.user.perfil
     },
     methods: {
         Resize(){
@@ -83,15 +67,6 @@ export default {
         },
         navigate(route) {
             this.$router.push({ name: route});
-        },
-    },
-    watch: {
-        setMode: function(valor){
-            this.$store.commit("setVerComo", valor);
-            localStorage.userVerComo = valor
-        },
-        active_tab: function (valor) {
-            console.log(valor);
         },
     },
 };

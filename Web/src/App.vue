@@ -34,8 +34,6 @@ export default Vue.extend({
     },
     data() {
         return {
-            logged: false,
-            rotasSemFooter: ['PDF', 'ProtocoloRecebimento', 'LaudoManutencao', 'LaudoCalibracao'],
             alerts: [],
             id: 0
         };
